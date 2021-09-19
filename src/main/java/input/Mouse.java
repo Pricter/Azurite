@@ -149,4 +149,53 @@ public class Mouse {
         pmouseY = mouseY;
         pmouse = new Vector2f(pmouseX, pmouseY);
     }
+
+    /**
+     * @return Mouse
+     */
+    public static Vector2f getMouse() {
+        return mouse;
+    }
+
+    /**
+     * @return MouseX
+     */
+    public static long getMouseX() {
+        return mouseX;
+    }
+
+    /**
+     * @return MouseY
+     */
+    public static long getMouseY() {
+        return mouseY;
+    }
+
+    /**
+     * @return MouseScroll
+     */
+    public static Vector2f getMouseScroll() {
+        return mouseScroll;
+    }
+
+    /**
+     * @return ScrollX
+     */
+    public static float getScrollX() {
+        return scrollX;
+    }
+
+    /**
+     * @return ScrollY
+     */
+    public static float getScrollY() {
+        return scrollY;
+    }
+
+    /**
+     * @return mouseButton
+     */
+    public static boolean[] getMouseButton() {
+        return mouseButton;
+    }
 }

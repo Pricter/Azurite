@@ -199,12 +199,12 @@ public class Color {
     }
 
     /**
-     * Set a component of this color to a value
+     * Set value for only one of r, g, b, a
      *
      * @param type  can be one of r, g, b, a
      * @param value value to set the component to
      */
-    public void setValue(char type, float value) {
+    public void setColor(char type, float value) {
         switch (type) {
             case 'r':
                 r = value;
@@ -221,5 +221,43 @@ public class Color {
         }
     }
 
+    /**
+     * Set Color based on float
+     *
+     * @param r
+     * @param g
+     * @param b
+     * @param a
+     */
+    public void setColor(float r, float g, float b, float a) {
+        this.r = r;
+        this.g = g;
+        this.b = b;
+        this.a = a;
+        clamp();
+    }
+
+    /**
+     * Lerps the color based on the percentage
+     *
+     * @param colorB
+     * @param percentage
+     */
+    public void lerp(Color colorB, float percentage) {
+        r += (colorB.r - r) * percentage;
+        g += (colorB.g - g) * percentage;
+        b += (colorB.b - b) * percentage;
+        a += (colorB.a - a) * percentage;
+    }
+
+    /**
+     * Clamps the color from 0 to 1
+     */
+    private void clamp() {
+        if (r > 1) r = 1; else if (r < 0) r = 0;
+        if (g > 1) g = 1; else if (g < 0) g = 0;
+        if (b > 1) b = 1; else if (b < 0) b = 0;
+        if (a > 1) a = 1; else if (a < 0) a = 0;
+    }
 }
 
